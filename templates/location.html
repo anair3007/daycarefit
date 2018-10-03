@@ -12,44 +12,33 @@
   </head>
   <body>
     <!-- Page Content -->
-    <div class="container">
+    <div class="container col-9">
       <!-- Jumbotron Header -->
-      <header class="jumbotron py-5 my-0">
-        <h2 class="strong">Tell us about your ideal daycare in {{city}}, {{state}}</h2>
-        <p>To match the perfect daycare for you, enter some statements about what you value in a daycare. The more descriptive you can be, the better the match.</p>
-      </header>
+        <header class="jumbotron jumbotron-fluid my-0 p-4">
+        <h2 class="strong">Describe your ideal daycare in <span class="text-success">{{location}}</span></h2><hr class="my-4">
+        <p class="lead">To personalize your the match, enter some statements about what you value in a daycare.<br/>The more descriptive you can be, the better the match.</span></p>
+        </header>
       <!-- Page Features -->
-      <div class="row text-center">
-        <div class="mx-auto col-lg-12 col-md-12 mb-12">
-          <div class="card w-75 mx-auto">
+      <div class="mt-5 row text-center">
+        <div class="mx-auto">
+          <div class="card mx-auto">
             <div class="card-body">
-              <h4 class="mb-2 card-title">Step 2: Complete the following statements</h4>
-                <span class="text-muted">Note: Descriptive adjectives really help our robots find the best match.</span>
+              <h4 class="mb-5 card-title">Step 2: Complete the following statements</h4>
 
-              <form action="{{ url_for('match') }}" method="POST" role="form">
-                <div class="input-group mt-4 mb-4">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="statement1-stem">The facility should be </span>
-                  </div>
-                  <input type="text" class="form-control" name="statement1" id="statement1" aria-describedby="statement1-stem">
-                </div>
-
-                <div class="input-group mt-4 mb-4">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="statement2-stem">The staff should be </span>
-                  </div>
-                  <input type="text" class="form-control" name="statement2" id="statement2" aria-describedby="statement2-stem">
-                </div>
-
-                <div class="input-group mt-4 mb-4">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="statement3-stem">Activites for my child should be </span>
-                  </div>
-                  <input type="text" class="form-control" name="statement3" id="statement3" aria-describedby="statement3-stem">
-                </div>
-
-
-                <button type="submit" class="mt-4 mb-1 btn btn-success">Confirm Statements</button></form>
+<form action="{{ url_for('match', location=location,city=city) }}" method="POST" role="form">
+<div class="text-left form-group">
+<label class="h5" for="statement1">What are some qualities of your ideal daycare's <span class="text-info"><em>buiding or facility</em></span><br/><span class="lead">Example: I want my daycare to be clean and spacious</span></label><br/>
+<textarea rows="2" class="form-control" name="statement1" id="statement1"></textarea></div>
+<br/><br/>
+<div class="text-left form-group">
+<label class="h5" for="statement2">What are some qualities of your ideal daycare's <span class="text-info"><em>staff and caretakers</em></span><br/>
+<span class="lead">Example: I want the staff to be kind and patient</span></label><br/>
+<textarea rows="2" class="form-control" name="statement2" id="statement2"></textarea></div>
+<br/><br/>
+<div class="text-left form-group">
+<label class="h5" for="statement3">What are some qualities of your ideal daycare's <span class="text-info"><em>activities, programs, or style of care</em></span><br/><span class="lead">Example: I want the daycare to expose my children to different languages and cultures</span></label><br/>
+<textarea rows="2" class="form-control" name="statement3" id="statement3"></textarea></div>
+<button type="submit" class="mt-4 mb-1 btn btn-success">Confirm Statements</button></form>
               </div>
             </div>
           </div>
