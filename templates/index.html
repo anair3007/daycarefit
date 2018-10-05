@@ -7,29 +7,30 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- <link href="../static/cover.css" rel="stylesheet"> -->
 
-    <title>iCare: Find the perfect daycare</title>
+    <title>DaycareFit: Find the perfect daycare</title>
   </head>
   <body>
     <!-- Page Content -->
-    <div class="container col-9">
+    <div class="text-dark container col-9">
       <!-- Jumbotron Header -->
-      <header class="jumbotron jumbotron-fluid my-0 p-4">
-        <h2 class="strong">iCare<span class="small text-muted"> - Helping you find your perfect daycare</span></h2><hr class="my-4">
+      <header class=" jumbotron jumbotron-fluid my-0 p-4">
+        <h2 class="strong">DaycareFit<span class="small text-muted"> - Helping you find your perfect daycare</span></h2><hr class="my-4">
         <p class="lead">Finding a high quality daycare for your child can be a stressful and difficult process. With several hundred daycare facilities in any given city, it is impossible to search through all of the reviews available. We're here to make this process easier.</p>
       </header>
       <!-- Page Features -->
       <div class="mt-5 row text-center">
         <div class="mx-auto">
-          <div class="card mx-auto">
+          <div class="bg-light text-dark card mx-auto">
             <div class="card-body">
               <h4 class="mb-2 card-title">Step 1: Select your location:</h4>
 
               <form action="{{ url_for('location') }}" method="GET" role="form">
                 <label class="mt-4" for="city">Choose your city:</label>
                 <select class="form-control" name="city" id="city">
-                  <option selected value="NYC" >New York, New York</option>
-                  <option value="LA">Los Angees, California</option>
+                  <option selected value="NYC" >New York, NY</option>
+                  <option value="LA">Los Angeles, CA</option>
                 </select>
 
                 <button type="submit" class="mt-4 mb-1 btn btn-success">Confirm Location</button></form>

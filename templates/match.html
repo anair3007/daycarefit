@@ -4,11 +4,9 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- <link href="../static/cover.css" rel="stylesheet"> -->
+
 
 <style>
 .popover-content {
@@ -27,7 +25,7 @@
   </head>
   <body>
     <!-- Page Content -->
-    <div class="container col-9 mx-auto">
+    <div class="text-dark container col-9 mx-auto">
         <!-- Jumbotron Header -->
           <header class="jumbotron jumbotron-fluid my-0 p-4">
           <h2 class="strong">Daycares in <span class="text-success">{{location}}</span> most aligned with your needs: </h2><hr class="my-4">
@@ -35,20 +33,27 @@
           <p class="h4 text-muted">{{sentence}}</p>
           </header>
       <!-- Page Features -->
-      <div class="mx-auto mt-5 card-deck">
+      <div class="mt-5 card-deck">
         {% for index, row in matches.iterrows() %}
-          <div class="card bg-light mb-3"style="max-width: 17rem;">
-            <div class="card-header p-2">
-              <span class="font-weight-bold align-middle float-left text-success">{{"{:,.1f}".format(row['similarity'])}}% Match</span><a style="max-width: 7rem;" tabindex="0" role="button" class="float-right btn btn-sm btn-secondary" data-toggle="popover" data-container="body" data-placement="auto" data-trigger="focus" title="Reviews used for matching" data-html="true"  data-content="{{row['review-text']|nl2br}}">Show Why</a></div>
-            <div class="card-body text-center h-100">
-              <div class="h5 h-50 mb-auto card-title align-top"><a href="{{row['biz-url']}}">{{row["biz-name"]}}</a></div>
+          <div class="card bg-light text-dark  mx-auto mb-5 col=3" style="min-width:15rem;max-width:15rem;">
 
-              <div class="mb-4 h-50 mt-auto align-bottom"><address class="text-dark">{{row["biz-address"]}}(Google Map)</address><strong><span class="fas fa-mobile-alt">&nbsp;</span>{{row["biz-phone"]}}</strong></div>
+          <div class="card-header d-flex align-items-center">
 
-            </div>
-            <div class="p-2 card-footer text-center">
-              <a role="button" class="mb-1 btn btn-primary" href="{{row['biz-url']}}"><strong>{{row["biz-rating"]}}</strong><br/>({{row["biz-ratingcount"]}} on yelp.com)</a>
-            </div>
+            <span class="font-weight-bold text-success mr-auto">{{"{:,.1f}".format(row['similarity'])}}% Match</span>
+
+            <a tabindex="0" role="button" class="ml-auto btn btn-sm btn-secondary" data-toggle="popover" data-container="body" data-placement="auto" data-trigger="focus" title="Reviews used for matching" data-html="true"  data-content = "{{row['review-text']|nl2br}}">Show Why</a>
+
+          </div>
+          <div class="card-body text-dark text-center d-flex align-content-between flex-wrap">
+            <div class="h5 text-dark card-title"><a href="{{row['biz-url']}}">{{row["biz-name"]}}</a></div>
+
+            <address class="mx-auto w-75 text-dark">{{row["biz-address"]|nan}}</address>
+
+            <div class="mx-auto font-weight-bold"><span class="fas fa-mobile-alt">&nbsp;</span> {{row["biz-phone"]|nan}}</div>
+          </div>
+          <div class="card-footer text-center">
+            <a role="button" class="w-100 mx-auto btn btn-primary" href="{{row['biz-url']}}"><strong>{{row["biz-rating"]}}</strong><br/>({{row["biz-ratingcount"]}} on yelp.com)</a>
+          </div>
             </div>
         {% endfor %}
       </div>
@@ -56,28 +61,38 @@
       <div class="mt-3" id='expanded_details'></div>
       </div>
 
-      <!-- START jQUERY -->
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-      <script>
-      $(document).ready(function () {
-          //Convert address tags to google map links - Copyright Michael Jasper 2011-->
-          $('address').each(function () {
-              var link = "<a class='text-dark' href='http://maps.google.com/maps?q=" + encodeURIComponent( $(this).text() ) + "' target='_blank'>" + $(this).text() + "</a>";
-              $(this).html(link);
-          });
-      });
-      //popover from bootstrap
-      $(function () {
-        $('[data-toggle="popover"]').popover()
-      })
 
-      $('.popover-dismiss').popover({
-        trigger: 'focus'
-      })
-      </script>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<!-- START jQUERY -->
+<script>
+//popover from bootstrap
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+
+
+$(document).ready(function () {
+    //Convert address tags to google map links - Copyright Michael Jasper 2011-->
+    $('address').each(function () {
+      address_text = $(this).text()
+      if ( address_text.localeCompare("Not Available") == 0) {
+        //pass
+      }
+      else {
+        var link = "<a class='text-dark' href='http://maps.google.com/maps?q=" + encodeURIComponent( address_text ) + "' target='_blank'>" + address_text + "</a>";
+        $(this).html(link);
+      }
+    });
+});
+
+</script>
       <!-- END jQUERY -->
     </body>
 </html>
