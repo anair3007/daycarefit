@@ -1,4 +1,4 @@
-## daycarefit: helping you find daycares that fit your needs
+## daycarefit: helping you find daycares that fit your needs (http://www.daycarefit.com)
 
 ### Under the hood
 1. Over 52,000 daycare reviews were collected using a custom scraper built with Selenium and Beautiful Soup
