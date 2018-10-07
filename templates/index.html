@@ -28,10 +28,20 @@
 
               <form action="{{ url_for('location') }}" method="GET" role="form">
                 <label class="mt-4" for="city">Choose your city:</label>
-                <select class="form-control" name="city" id="city">
-                  <option selected value="NYC" >New York, NY</option>
-                  <option value="LA">Los Angeles, CA</option>
-                </select>
+                <select class="form-control custom-select" name="city" id="city">
+                <optgroup label="California">
+                  <option selected value="LA">Los Angeles, CA</option>
+                  <option value="SD">San Diego, CA</option>
+                  <option value="SF">San Francisco, CA</option>
+                </optgroup>
+                <optgroup label="Illinois">
+                  <option value="CHI">Chicago, IL</option>
+                </optgroup>
+                <optgroup label="New York">
+                  <option value="NYC" >New York, NY</option>
+                </optgroup>
+              </select>
+
 
                 <button type="submit" class="mt-4 mb-1 btn btn-success">Confirm Location</button></form>
               </div>

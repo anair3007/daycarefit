@@ -46,7 +46,11 @@ def process_input(sentence,city):
 		return df[:4], location
 
 def get_location(city):
-	city_names = {"NYC":"New York, NY", "LA":"Los Angeles, CA"}
+	city_names = {"NYC":"New York, NY",
+	"CHI":"Chicago, IL",
+	"SD":"San Diego, CA",
+	"SF":"San Francisco, CA",
+	"LA":"Los Angeles, CA",}
 	return city_names[city]
 
 @app.template_filter('nl2br')
