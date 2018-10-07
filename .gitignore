@@ -5,6 +5,7 @@ venv
 presentation
 data
 virt
+*.ipynb
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
