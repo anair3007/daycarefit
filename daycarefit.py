@@ -85,4 +85,4 @@ def match():
 	return render_template('match.html',matches=matches,sentence=sentence, city=city,location=location)
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0',debug=True)
+	app.run(host='0.0.0.0',debug=False)
