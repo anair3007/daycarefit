@@ -25,10 +25,10 @@ def process_string_to_normvector(sentence):
 	processed = [re.sub(r'\W', '', token).strip() if hasattr(token,'strip') else re.sub(r'\W', '', token) for token in processed]
 	processed = [token for token in processed if (token not in remove and token in model.vocab)]
 	if(len(processed)==0):
-	    return None
+		return None
 	else:
-	    processed = np.mean([model.word_vec(token) for token in processed],axis=0)
-	    return processed/np.linalg.norm(processed)
+		processed = np.mean([model.word_vec(token) for token in processed],axis=0)
+		return processed/np.linalg.norm(processed)
 
 def process_input(sentence,city):
 	location = get_location(city)
